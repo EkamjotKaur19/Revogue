@@ -8,7 +8,7 @@ const App = () => {
         <Container maxwidth='lg'>
             <AppBar position='static' color='inherit'>
                 <Typography variant='h2' align='center'>Thrift Shop</Typography>
-                <img src={thrift_shop} alt='thrift shop' height='60'/>
+                <img src={thrift_shop} alt='thrift shop' height='100' width='100'/>
             </AppBar>
         </Container>
     );
