@@ -1,11 +1,16 @@
 import React from 'react';
 
+import {Container, AppBar, Typography, Grow, Grid} from '@material-ui/core';
+import thrift_shop from './images/Thrift Shop.png'
 
 const App = () => {
     return (
-        <div>
-            <h1>App</h1>
-        </div>
+        <Container maxwidth='lg'>
+            <AppBar position='static' color='inherit'>
+                <Typography variant='h2' align='center'>Thrift Shop</Typography>
+                <img src={thrift_shop} alt='thrift shop' height='100' width='100'/>
+            </AppBar>
+        </Container>
     );
 }
 
