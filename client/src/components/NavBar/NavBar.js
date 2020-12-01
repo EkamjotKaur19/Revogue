@@ -1,5 +1,3 @@
-import {makeStyles} from '@material-ui/core/styles';
-
 import {
   AppBar, 
   Toolbar, 
@@ -9,9 +7,7 @@ import {
   Box
 } from '@material-ui/core';
 
-import getStyles from '../styles.js'
-
-const useStyles = makeStyles(getStyles);
+import useStyles from './styles.js'
 
 function NavBar () {
   const classes = useStyles();

@@ -1,6 +1,4 @@
-import {makeStyles} from '@material-ui/core/styles';
 import {
-  CssBaseline,
   Box,
   Typography,
   Container,
@@ -9,14 +7,11 @@ import {
 
 
 // Relative imports
-import getStyles from './styles.js'
-import Copyright from './components/Copyright';
-import FooterIcons from './components/FooterIcons';
-import NavBar from './components/NavBar.js';
-import GridItem from './components/GridItem';
+import useStyles from './styles'
+import NavBar from './components/NavBar/NavBar';
+import GridItem from './components/GridItem/GridItem';
+import Footer from './components/Footer/Footer';
 
-
-const useStyles = makeStyles(getStyles);
 
 function App() {
   const classes = useStyles();
@@ -97,15 +92,7 @@ function App() {
         </Grid>
       </Container>
 
-      <div className={classes.rootFooter}>
-        <CssBaseline />
-        <footer className={classes.footer}>
-          <Container maxWidth="sm">
-            <Copyright />
-            <FooterIcons />
-          </Container>
-        </footer>
-      </div>
+      <Footer />
     </div>
   );
 }

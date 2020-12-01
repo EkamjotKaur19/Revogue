@@ -1,4 +1,3 @@
-import {makeStyles} from '@material-ui/core/styles';
 import {
   Box,
   Typography,
@@ -15,10 +14,7 @@ import {
 import ChatBubbleOutlineSharpIcon from '@material-ui/icons/ChatBubbleOutlineSharp';
 
 // Relative imports
-import getStyles from '../styles.js'
-
-
-const useStyles = makeStyles(getStyles);
+import useStyles from './styles'
 
 function GridItem (props) {
   const classes = useStyles();
