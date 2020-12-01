@@ -1,19 +1,18 @@
 import {makeStyles} from '@material-ui/core/styles';
 
-
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Box from '@material-ui/core/Typography';
-
-
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import Avatar from '@material-ui/core/Avatar';
+import {
+  CssBaseline,
+  Box,
+  Typography,
+  Container,
+  Grid,
+  Card,
+  CardActionArea,
+  CardActions,
+  CardMedia,
+  CardContent,
+  Avatar,
+} from '@material-ui/core';
 
 // Icons
 import ChatBubbleOutlineSharpIcon from '@material-ui/icons/ChatBubbleOutlineSharp';
