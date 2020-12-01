@@ -4,7 +4,7 @@ This is the Mini Project for Web Tech (UE19CS204).
 
 ## Install node modules
 
-To install all modules from the `package.json` files (server anf client), run
+To install all modules from the `package.json` files (server and client), run
 
 ```shell
 npm install
