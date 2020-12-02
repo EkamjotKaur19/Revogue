@@ -24,7 +24,7 @@ function App() {
 
   useEffect(() => {
     dispatch(getProducts());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="App">
