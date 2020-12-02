@@ -1,28 +1,20 @@
-// Built-in/third party imports
-import dotenv from 'dotenv';
-import express from 'express';
-import bodyParser from 'body-parser';
-import mongoose from 'mongoose';
-import cors from 'cors';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import { ThemeProvider } from "@material-ui/core/styles";
+import theme from "./theme.js"
 
-// Relative imports
-import userRoutes from './routes/users.js';
-import productRoutes from './routes/products.js';
+ReactDOM.render(
+  <React.StrictMode>
+    <ThemeProvider theme = {theme}>
+      <App />
+    </ThemeProvider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
-dotenv.config();
-const app = express();
-
-app.use(bodyParser.json({limit: '30mb', extended: true}));
-app.use(bodyParser.urlencoded({limit: '30mb', extended: true}));
-app.use(cors());
-
-app.use('/users', userRoutes);
-app.use('/products', productRoutes);
-
-const PORT = process.env.PORT || 5000;
-
-mongoose.connect(process.env.CONNECTION_URL, {useNewUrlParser: true, useUnifiedTopology: true})
-    .then(() => app.listen(PORT, () => console.log(`Server running on port ${PORT}`)))
-    .catch((error) => console.log('Error: ' + error.message))
-
-mongoose.set('useFindAndModify', false);
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
