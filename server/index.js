@@ -4,8 +4,10 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import passport from 'passport';
 
 // Relative imports
+import passportUse from './config/passport.js';
 import userRoutes from './routes/users.js';
 import productRoutes from './routes/products.js';
 
@@ -16,6 +18,11 @@ app.use(bodyParser.json({limit: '30mb', extended: true}));
 app.use(bodyParser.urlencoded({limit: '30mb', extended: true}));
 app.use(cors());
 
+// Passport middleware
+app.use(passport.initialize());
+passportUse(passport);
+
+// Routes
 app.use('/users', userRoutes);
 app.use('/products', productRoutes);
 
