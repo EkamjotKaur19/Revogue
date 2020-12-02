@@ -10,4 +10,7 @@ export default makeStyles((theme) => ({
     marginRight: theme.spacing(2),
     backgroundColor: '#fff'
   },
+  navbarText: {
+    color: '#000000',
+  }
 }))
