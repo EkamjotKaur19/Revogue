@@ -1,3 +1,4 @@
+import {useEffect} from 'react';
 import {
   Box,
   Typography,
@@ -5,16 +6,26 @@ import {
   Grid,
 } from '@material-ui/core';
 
+import {useDispatch, useSelector} from 'react-redux';
+
 
 // Relative imports
 import useStyles from './styles'
 import NavBar from './components/NavBar/NavBar';
 import GridItem from './components/GridItem/GridItem';
 import Footer from './components/Footer/Footer';
-
+import {getProducts} from './actions/products'
 
 function App() {
   const classes = useStyles();
+  const dispatch = useDispatch(); 
+  const products = useSelector((state) => state.products);
+  console.log(products);
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, []);
+
   return (
     <div className="App">
       <NavBar />
