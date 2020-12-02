@@ -5,16 +5,17 @@ import {ThemeProvider} from '@material-ui/core/styles';
 
 import theme from './theme'; 
 
-import App from './App';
+// import App from './App';
 
 // import SignIn from './components/Login/SignIn';
-// import SignUp from './components/Login/SignUp';
+import SignUp from './components/Login/SignUp';
 
-// ReactDOM.render(<SignUp/>, document.getElementById('root'));
+
 // ReactDOM.render(<SignIn/>, document.getElementById('root'));
 ReactDOM.render(
   <ThemeProvider theme={theme}>
-    <App/>
+    {/* <App/> */}
+    <SignUp/>
   </ThemeProvider>, 
   document.getElementById('root')
 );
