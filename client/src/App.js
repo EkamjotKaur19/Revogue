@@ -30,7 +30,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    ! products.length ? <CircularProgress /> : (
+    !products.length ? <CircularProgress /> : (
       <div className="App">
         <NavBar />
         
@@ -52,9 +52,9 @@ function App() {
             products.map((product) => (
   
               <GridItem key={product._id}
-                img={!product.image? "https://picsum.photos/200/300": product.image}
+                img={!product.image ? "https://picsum.photos/200/300" : product.image}
                 title={product.name}
-                avatar='https://i.pinimg.com/originals/5b/c6/e6/5bc6e6b23f963cb859ac7aa748029a78.png'
+                avatar={!product.avatar ? 'https://i.pinimg.com/originals/5b/c6/e6/5bc6e6b23f963cb859ac7aa748029a78.png' : product.avatar}
                 price={'₹' + product.price}
                 desc={product.description}
               />
