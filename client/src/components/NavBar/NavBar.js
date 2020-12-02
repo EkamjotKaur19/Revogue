@@ -44,9 +44,9 @@ function NavBar () {
           <DropDown />
 
           <Box display="flex" flexDirection="row-reverse" justifyContent="space-between">
-            <Button color="black" endIcon = { <ShoppingCartOutlinedIcon /> }>Cart</Button>
-            <Button color="black">About Us</Button>
-            <Button color="black">Sign Up/Login</Button>
+            <Button className={classes.navbarText}>Catalog</Button>
+            <Button className={classes.navbarText}>About Us</Button>
+            <Button className={classes.navbarText}>Sign Up/Login</Button>
           </Box>
         </Container> 
       </Toolbar>

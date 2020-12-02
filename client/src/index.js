@@ -1,6 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {ThemeProvider} from '@material-ui/core/styles';
+import {createStore, applyMiddleware, compose} from 'redux';
+import thunk from 'redux-thunk';
+import {Provider} from 'react-redux';
+
+import theme from './theme'; 
+import reducers from './reducers';
 
 import App from './App';
 
-ReactDOM.render(<App/>, document.getElementById('root'));
+// import SignIn from './components/Login/SignIn';
+// import SignUp from './components/Login/SignUp';
+
+const store = createStore(reducers, compose(applyMiddleware(thunk)));
+
+// ReactDOM.render(<SignIn/>, document.getElementById('root'));
+ReactDOM.render(
+  
+  <ThemeProvider theme={theme}>
+    <Provider store={store}>
+    <App/>
+    {/* <SignUp/> */}
+    </Provider> 
+  </ThemeProvider>,
+
+  document.getElementById('root')
+);

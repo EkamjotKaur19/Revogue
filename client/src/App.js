@@ -1,9 +1,12 @@
+import {useEffect} from 'react';
 import {
   Box,
   Typography,
   Container,
   Grid,
 } from '@material-ui/core';
+
+import {useDispatch, useSelector} from 'react-redux';
 
 
 // Relative imports
@@ -14,9 +17,18 @@ import Footer from './components/Footer/Footer';
 
 import {BrowserRouter as Router} from 'react-router-dom';
 
+import {getProducts} from './actions/products'
 
 function App() {
   const classes = useStyles();
+  const dispatch = useDispatch(); 
+  const products = useSelector((state) => state.products);
+  console.log(products);
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
+
   return (
     <div className="App">
       <Router>
