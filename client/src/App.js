@@ -30,27 +30,30 @@ function App() {
   }, [dispatch]);
 
   return (
-    !products.length ? <CircularProgress /> : (
-      <div className="App">
-        <NavBar />
-        
-        <Box className={classes.hero}>
-          <Box>
-            <Typography variant="h2">
-              One stop for all your needs!
-            </Typography>
-          </Box>
+    <div className="App">
+      <NavBar />
+      
+      <Box className={classes.hero}>
+        <Box>
+          <Typography variant="h2">
+            One stop for all your needs!
+          </Typography>
         </Box>
+      </Box>
 
-        <Container maxWidth='lg' className={classes.itemsContainer}>
-          <Typography variant="h4" className={classes.itemTitle}>
-            Items
-            </Typography>
-          
+      <Container maxWidth='lg' className={classes.itemsContainer}>
+        <Typography variant="h4" className={classes.itemTitle}>
+          Items
+          </Typography>
+      
+
+        {!products.length ? (
+          <div style={{display: 'flex', justifyContent: 'center'}}>
+            <CircularProgress />
+          </div>) : (
           <Grid container spacing={3}> {
             
             products.map((product) => (
-  
               <GridItem key={product._id}
                 img={!product.image ? "https://picsum.photos/200/300" : product.image}
                 title={product.name}
@@ -60,13 +63,13 @@ function App() {
               />
             ))
           }
-
           </Grid>
-        </Container>
+        )}
 
-        <Footer />
-      </div>
-    )
+      </Container>
+
+      <Footer />
+    </div>
     
   );
 }
