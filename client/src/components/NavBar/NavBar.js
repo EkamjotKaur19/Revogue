@@ -4,27 +4,51 @@ import {
   Typography, 
   Button, 
   Container, 
-  Box
+  Box,
+  Menu,
+  MenuItem
 } from '@material-ui/core';
 
+import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
+
+import {useState} from 'react';
 import useStyles from './styles.js'
+import DropDown from '../DropDown/DropDown'
+import { Link } from 'react-router-dom'
 
 function NavBar () {
   const classes = useStyles();
+
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <AppBar className={classes.appBar} position="static">
       <Toolbar>
-        <Container className={classes.navbarDisplayFlex}>
-          <Typography variant="h6" color='primary'>
-            Thrift Shop
-          </Typography>  
-    
+        <Container className={classes.navbarDisplayFlex} onClick = {handleClose}>
+            <Typography variant="h6" color='primary'>
+              <Link to ="/" />
+              Thrift Shop
+            </Typography>  
+
+
+          <DropDown />
+
+          <DropDown />
+
           <Box display="flex" flexDirection="row-reverse" justifyContent="space-between">
-            <Button color="black">Catalog</Button>
+            <Button color="black" endIcon = { <ShoppingCartOutlinedIcon /> }>Cart</Button>
             <Button color="black">About Us</Button>
             <Button color="black">Sign Up/Login</Button>
           </Box>
-        </Container>
+        </Container> 
       </Toolbar>
     </AppBar>
   );

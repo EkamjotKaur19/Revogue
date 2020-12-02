@@ -12,12 +12,16 @@ import NavBar from './components/NavBar/NavBar';
 import GridItem from './components/GridItem/GridItem';
 import Footer from './components/Footer/Footer';
 
+import {BrowserRouter as Router} from 'react-router-dom';
+
 
 function App() {
   const classes = useStyles();
   return (
     <div className="App">
-      <NavBar />
+      <Router>
+        <NavBar />
+      </Router>
       
       <Box className={classes.hero}>
         <Box>
