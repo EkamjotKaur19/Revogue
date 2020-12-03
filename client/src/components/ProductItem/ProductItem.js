@@ -25,7 +25,6 @@ function ProductItem (props) {
   return (
     <Grid 
       container 
-      xs={12} 
       justify="flex-start" 
       spacing={3} 
       alignItems="center"

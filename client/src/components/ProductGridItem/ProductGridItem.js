@@ -37,7 +37,7 @@ function ProductGridItem (props) {
   }
 
   // TODO: fetch the product?? idk
-  if (!props.currentId) {
+  // if (!props.currentId) {
     return (
       <Grid item xs={12} sm={6} md={4}>
         <Card className={classes.card}>
@@ -76,15 +76,15 @@ function ProductGridItem (props) {
         </Card>
       </Grid>
     );
-  }
-  else {
-    // console.log(`clicked! ${props.currentId}`);
-    return(
-      <Router>
-        <Redirect to = {{pathname: `/products/${props.currentId}`}} />
-      </Router>
-    );
-  }
+  // }
+  // else {
+  //   // console.log(`clicked! ${props.currentId}`);
+  //   return(
+  //     <Router>
+  //       <Redirect to = {{pathname: `/products/${props.currentId}`}} />
+  //     </Router>
+  //   );
+  // }
   
 }
 
