@@ -25,8 +25,8 @@ ReactDOM.render(
   
   <ThemeProvider theme={theme}>
     <Provider store={store}>
-    {/* <App/> */}
-    <ProductItem />
+    <App/>
+    {/* <ProductItem /> */}
     </Provider> 
   </ThemeProvider>,
 

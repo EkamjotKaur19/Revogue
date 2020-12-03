@@ -13,17 +13,15 @@ import {useDispatch, useSelector} from 'react-redux';
 // Relative imports
 import useStyles from './styles'
 import NavBar from './components/NavBar/NavBar';
-import GridItem from './components/GridItem/GridItem';
+import ProductGridItem from './components/ProductGridItem/ProductGridItem';
 import Footer from './components/Footer/Footer';
+
 import {getProducts} from './actions/products'
 
 function App() {
   const classes = useStyles();
   const dispatch = useDispatch(); 
   const products = useSelector((state) => state.products);
-
-  // const [currentId, setCurrentId] = useState(null);
-  
   
   // TODO: change this to functionality
   console.log(products);
@@ -57,8 +55,8 @@ function App() {
           <Grid container spacing={3}> {
             
             products.map((product) => (
-              <GridItem key={product._id}
-                currentId={product._id}
+              <ProductGridItem key={product._id}
+                productId={product._id}
                 img={!product.image ? "https://picsum.photos/200/300" : product.image}
                 title={product.name}
                 avatar={!product.avatar ? 'https://i.pinimg.com/originals/5b/c6/e6/5bc6e6b23f963cb859ac7aa748029a78.png' : product.avatar}
