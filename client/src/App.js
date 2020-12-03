@@ -44,7 +44,7 @@ function App() {
       <Container maxWidth='lg' className={classes.itemsContainer}>
         <Typography variant="h4" className={classes.itemTitle}>
           Items
-          </Typography>
+        </Typography>
       
 
         {!products.length ? (
