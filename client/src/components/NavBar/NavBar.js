@@ -46,7 +46,7 @@ function NavBar () {
             <Button className ={classes.navbarText} component = {Link} to = "/checkout"><ShoppingCartOutlinedIcon/></Button>
             <Button className={classes.navbarText}>Catalog</Button>
             <Button className={classes.navbarText}>About Us</Button>
-            <Button className={classes.navbarText} component = {Link} to = "/login">Sign Up/Login</Button>
+            <Button className={classes.navbarText} component = {Link} to = "/login">Login</Button>
           </Box>
         </Container> 
       </Toolbar>

@@ -10,8 +10,9 @@ import {
 import {useDispatch, useSelector} from 'react-redux';
 
 import SignIn from './components/Login/SignIn';
-import Checkout from './components/checkout/Checkout';
-import Review from './components/checkout/Review';
+import Checkout from './components/Checkout/Checkout';
+import Review from './components/Checkout/Forms/Review';
+import SignUp from './components/Login/SignUp';
 
 // Relative imports
 import useStyles from './styles'
@@ -41,6 +42,7 @@ function App() {
         <NavBar />
         <Route path = "/login" component = {SignIn} />
         <Route path = "/checkout" component = {Checkout} />
+        <Route path = "/signup" component = {SignUp} />
       </Router>
       
       <Box className={classes.hero}>
