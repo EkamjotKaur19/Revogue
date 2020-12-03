@@ -8,10 +8,13 @@ import {
   CardMedia,
   CardContent,
   Avatar,
+  Container,
+  Button
 } from '@material-ui/core';
 
 // Icons
 import ChatBubbleOutlineSharpIcon from '@material-ui/icons/ChatBubbleOutlineSharp';
+import AddShoppingCartOutlined from '@material-ui/icons/AddShoppingCartOutlined'
 
 // Relative imports
 import useStyles from './styles'
@@ -48,7 +51,8 @@ function GridItem (props) {
           </Box>
 
           <Box className={classes.review}>
-              <ChatBubbleOutlineSharpIcon/>
+            <Button><AddShoppingCartOutlined /></Button>
+            <Button><ChatBubbleOutlineSharpIcon /></Button>
           </Box>
         </CardActions>  
       </Card>
