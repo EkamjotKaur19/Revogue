@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
 import {
   Box,
   Typography,
@@ -22,7 +22,10 @@ function App() {
   const dispatch = useDispatch(); 
   const products = useSelector((state) => state.products);
 
-
+  // const [currentId, setCurrentId] = useState(null);
+  
+  
+  // TODO: change this to functionality
   console.log(products);
 
   useEffect(() => {
@@ -55,6 +58,7 @@ function App() {
             
             products.map((product) => (
               <GridItem key={product._id}
+                currentId={product._id}
                 img={!product.image ? "https://picsum.photos/200/300" : product.image}
                 title={product.name}
                 avatar={!product.avatar ? 'https://i.pinimg.com/originals/5b/c6/e6/5bc6e6b23f963cb859ac7aa748029a78.png' : product.avatar}

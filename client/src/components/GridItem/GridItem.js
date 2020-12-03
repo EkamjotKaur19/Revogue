@@ -9,6 +9,8 @@ import {
   CardContent,
   Avatar,
 } from '@material-ui/core';
+import {useSelector} from 'react-redux';
+
 
 // Icons
 import ChatBubbleOutlineSharpIcon from '@material-ui/icons/ChatBubbleOutlineSharp';
@@ -18,10 +20,13 @@ import useStyles from './styles'
 
 function GridItem (props) {
   const classes = useStyles();
+
+  // TODO: fetch the product?? idk
   return (
     <Grid item xs={12} sm={6} md={4}>
       <Card className={classes.card}>
-        <CardActionArea>
+        {/* TODO: here */}
+        <CardActionArea onClick={() => console.log(props.currentId)}>
           <CardMedia
             className={classes.media}
             image={props.img}
