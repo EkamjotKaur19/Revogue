@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React , {useState} from 'react';
+import {Redirect} from 'react-router-dom';
 import {
   Avatar,
   Button,
@@ -11,18 +11,33 @@ import {
   Grid,
   Box,
   Typography,
-  Container,
+  Container
 } from '@material-ui/core';
 
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
+import {useDispatch} from 'react-redux';
+
 // Relative imports
 import Copyright from '../Footer/Copyright';
 import useStyles from './styles';
+import {createUser} from '../../actions/users'
 
 export default function SignUp() {
-  const classes = useStyles();
+  const [userData, setuserData] = useState({ firstname:'', lastname:'',  email:'', password:'', password2:'' });
+  const [signedup, setSignUp] = useState(false);
 
+  const classes = useStyles();
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(userData);
+    dispatch(createUser(userData));
+    setSignUp(true);  
+  }
+
+  if (!signedup) {
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -33,7 +48,7 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate onSubmit = {handleSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -45,6 +60,8 @@ export default function SignUp() {
                 id="firstName"
                 label="First Name"
                 autoFocus
+                value = {userData.firstname}
+                onChange = {(e) => setuserData({...userData, firstname: e.target.value})}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -56,6 +73,8 @@ export default function SignUp() {
                 label="Last Name"
                 name="lastName"
                 autoComplete="lname"
+                value = {userData.lastname}
+                onChange = {(e) => setuserData({...userData, lastname: e.target.value})}
               />
             </Grid>
             <Grid item xs={12}>
@@ -67,6 +86,8 @@ export default function SignUp() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                value = {userData.email}
+                onChange = {(e) => setuserData({...userData, email: e.target.value})}
               />
             </Grid>
             <Grid item xs={12}>
@@ -79,6 +100,22 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                value = {userData.password}
+                onChange = {(e) => setuserData({...userData, password: e.target.value})}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="confirmpassword"
+                label="Confirm Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+                value = {userData.password2}
+                onChange = {(e) => setuserData({...userData, password2: e.target.value})}
               />
             </Grid>
             <Grid item xs={12}>
@@ -99,7 +136,7 @@ export default function SignUp() {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="/login" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>
@@ -111,4 +148,12 @@ export default function SignUp() {
       </Box>
     </Container>
   );
+  }
+  else 
+  {
+    return(
+      //<Link to = "/login">Signed Up! Click Here to Log in</Link>
+      <Redirect to = "/login" />
+    );
+  }
 }

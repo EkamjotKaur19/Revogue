@@ -21,7 +21,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Copyright from '../Footer/Copyright';
 import useStyles from './styles';
 
-export default function SignIn() {
+function SignIn() {
   const classes = useStyles();
 
   return (
@@ -78,7 +78,7 @@ export default function SignIn() {
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="/signup" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>
@@ -91,3 +91,5 @@ export default function SignIn() {
     </Container>
   );
 }
+
+export default SignIn;

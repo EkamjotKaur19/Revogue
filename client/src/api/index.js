@@ -1,7 +1,10 @@
 import axios from 'axios';
 
-const url = 'http://localhost:5000/products';
+const product_url = 'http://localhost:5000/products';
+const user_url = 'http://localhost:5000/users/register';
 
-export const getProducts = () => axios.get(url);
 
-export const getOneProduct = (id) => axios.get(`${url}/${id}`);
+export const getProducts = () => axios.get(product_url);
+export const getOneProduct = (id) => axios.get(`${product_url}/${id}`);
+
+export const createUser = (newUser) => axios.post(user_url, newUser);
