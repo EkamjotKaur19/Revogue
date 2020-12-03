@@ -34,7 +34,7 @@ function DropDown() {
             <MenuItem onClick={handleClose}>Logout</MenuItem> */}
             {MenuItems.map((item, index) => {
             return (
-                <MenuItem onClick={handleClose}>{item.title}</MenuItem>
+                <MenuItem key={index} onClick={handleClose}>{item.title}</MenuItem>
             );
             })}
         </Menu>
