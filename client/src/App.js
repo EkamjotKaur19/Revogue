@@ -8,6 +8,9 @@ import {
 
 import {useDispatch, useSelector} from 'react-redux';
 
+import SignIn from './components/Login/SignIn';
+import Checkout from './components/checkout/Checkout';
+import Review from './components/checkout/Review';
 
 // Relative imports
 import useStyles from './styles'
@@ -15,7 +18,7 @@ import NavBar from './components/NavBar/NavBar';
 import GridItem from './components/GridItem/GridItem';
 import Footer from './components/Footer/Footer';
 
-import {BrowserRouter as Router} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 import {getProducts} from './actions/products'
 
@@ -33,6 +36,8 @@ function App() {
     <div className="App">
       <Router>
         <NavBar />
+        <Route path = "/login" component = {SignIn} />
+        <Route path = "/checkout" component = {Checkout} />
       </Router>
       
       <Box className={classes.hero}>

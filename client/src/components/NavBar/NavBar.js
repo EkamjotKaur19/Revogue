@@ -33,8 +33,7 @@ function NavBar () {
     <AppBar className={classes.appBar} position="static">
       <Toolbar>
         <Container className={classes.navbarDisplayFlex} onClick = {handleClose}>
-            <Typography variant="h6" color='primary'>
-              <Link to ="/" />
+            <Typography variant="h6" color='primary' component = {Link} to = "/">
               Thrift Shop
             </Typography>  
 
@@ -44,9 +43,10 @@ function NavBar () {
           <DropDown />
 
           <Box display="flex" flexDirection="row-reverse" justifyContent="space-between">
+            <Button className ={classes.navbarText} component = {Link} to = "/checkout"><ShoppingCartOutlinedIcon/></Button>
             <Button className={classes.navbarText}>Catalog</Button>
             <Button className={classes.navbarText}>About Us</Button>
-            <Button className={classes.navbarText}>Sign Up/Login</Button>
+            <Button className={classes.navbarText} component = {Link} to = "/login">Sign Up/Login</Button>
           </Box>
         </Container> 
       </Toolbar>

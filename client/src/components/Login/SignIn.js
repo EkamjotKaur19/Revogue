@@ -21,7 +21,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Copyright from '../Footer/Copyright';
 import useStyles from './styles';
 
-export default function SignIn() {
+function SignIn() {
   const classes = useStyles();
 
   return (
@@ -91,3 +91,5 @@ export default function SignIn() {
     </Container>
   );
 }
+
+export default SignIn;
