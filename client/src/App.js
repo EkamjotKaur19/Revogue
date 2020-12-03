@@ -8,6 +8,7 @@ import SignIn from './components/Login/SignIn';
 import Checkout from './components/Checkout/Checkout';
 import Review from './components/Checkout/Forms/Review';
 import SignUp from './components/Login/SignUp';
+import ProductItem from './components/ProductItem/ProductItem'
 
 // Relative imports
 import useStyles from './styles'
@@ -26,9 +27,10 @@ function App() {
     <div className="App">
       <Router>
         <NavBar />
-        <Route path = "/login" component = {SignIn} />
-        <Route path = "/checkout" component = {Checkout} />
-        <Route path = "/signup" component = {SignUp} />
+        <Route exact path = "/login" component = {SignIn} />
+        <Route exact path = "/checkout" component = {Checkout} />
+        <Route exact path = "/signup" component = {SignUp} />
+        <Route path = "/products/:id" component = {ProductItem} />
       </Router>
       
       <Box className={classes.hero}>

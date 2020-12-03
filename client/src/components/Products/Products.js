@@ -18,6 +18,8 @@ import {getProducts} from '../../actions/products';
 
 export default function Products() {
   const classes = useStyles();
+
+  const [currentId, setCurrentId] = useState(false);
   
   const dispatch = useDispatch(); 
   const products = useSelector((state) => state.products);
@@ -45,6 +47,8 @@ export default function Products() {
             products.map((product) => (
               <ProductGridItem key={product._id}
                 productId={product._id}
+                currentId={currentId}
+                setCurrentId={setCurrentId}
                 img={!product.image ? "https://picsum.photos/200/300" : product.image}
                 title={product.name}
                 avatar={!product.avatar ? 'https://i.pinimg.com/originals/5b/c6/e6/5bc6e6b23f963cb859ac7aa748029a78.png' : product.avatar}
