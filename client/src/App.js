@@ -29,7 +29,6 @@ function App() {
         <Route path = "/login" component = {SignIn} />
         <Route path = "/checkout" component = {Checkout} />
         <Route path = "/signup" component = {SignUp} />
-        <Route path = "/" component = {Products} />
       </Router>
       
       <Box className={classes.hero}>
@@ -39,6 +38,8 @@ function App() {
           </Typography>
         </Box>
       </Box>
+
+      <Products />
 
       <Footer />
     </div>
