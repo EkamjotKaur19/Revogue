@@ -14,11 +14,4 @@ export default makeStyles((theme) => ({
     color: '#fff',
     fontSize: '4rem'
   },
-  itemsContainer: {
-    paddingTop: theme.spacing(3)
-  },
-  itemTitle: {
-    fontWeight: 500,
-    paddingBottom: theme.spacing(3)
-  },
 }));

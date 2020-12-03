@@ -1,13 +1,8 @@
-import {useEffect, useState} from 'react';
 import {
   Box,
   Typography,
-  Container,
-  Grid,
-  CircularProgress,
 } from '@material-ui/core';
 
-import {useDispatch, useSelector} from 'react-redux';
 
 import SignIn from './components/Login/SignIn';
 import Checkout from './components/Checkout/Checkout';
@@ -17,24 +12,15 @@ import SignUp from './components/Login/SignUp';
 // Relative imports
 import useStyles from './styles'
 import NavBar from './components/NavBar/NavBar';
-import ProductGridItem from './components/ProductGridItem/ProductGridItem';
 import Footer from './components/Footer/Footer';
+import Products from './components/Products/Products';
 
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
-import {getProducts} from './actions/products'
 
 function App() {
   const classes = useStyles();
-  const dispatch = useDispatch(); 
-  const products = useSelector((state) => state.products);
   
-  // TODO: change this to functionality
-  console.log(products);
-
-  useEffect(() => {
-    dispatch(getProducts());
-  }, [dispatch]);
 
   return (
     <div className="App">
@@ -43,6 +29,7 @@ function App() {
         <Route path = "/login" component = {SignIn} />
         <Route path = "/checkout" component = {Checkout} />
         <Route path = "/signup" component = {SignUp} />
+        <Route path = "/" component = {Products} />
       </Router>
       
       <Box className={classes.hero}>
@@ -52,34 +39,6 @@ function App() {
           </Typography>
         </Box>
       </Box>
-
-      <Container maxWidth='lg' className={classes.itemsContainer}>
-        <Typography variant="h4" className={classes.itemTitle}>
-          Items
-        </Typography>
-      
-
-        {!products.length ? (
-          <div style={{display: 'flex', justifyContent: 'center'}}>
-            <CircularProgress />
-          </div>) : (
-          <Grid container spacing={3}> {
-            
-            products.map((product) => (
-              <ProductGridItem key={product._id}
-                productId={product._id}
-                img={!product.image ? "https://picsum.photos/200/300" : product.image}
-                title={product.name}
-                avatar={!product.avatar ? 'https://i.pinimg.com/originals/5b/c6/e6/5bc6e6b23f963cb859ac7aa748029a78.png' : product.avatar}
-                price={'₹' + product.price}
-                desc={product.description}
-              />
-            ))
-          }
-          </Grid>
-        )}
-
-      </Container>
 
       <Footer />
     </div>
