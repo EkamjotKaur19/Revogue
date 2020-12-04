@@ -9,7 +9,8 @@ import {
   CardContent,
   Avatar,
 } from '@material-ui/core';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+import {useEffect, useState} from 'react';
 
 
 // Icons
@@ -17,11 +18,23 @@ import ChatBubbleOutlineSharpIcon from '@material-ui/icons/ChatBubbleOutlineShar
 
 // Relative imports
 import useStyles from './styles'
+import { getOneProduct } from '../../api';
+// import { getOneProduct } from '../../api';
 
 function ProductItem (props) {
   const classes = useStyles();
+  const dispatch = useDispatch(); 
 
-  // TODO: fetch the product?? idk
+  console.log(props.match.params.id);
+  dispatch(getOneProduct(props.match.params.id));
+
+  const product = useSelector((state) => state.products);
+  console.log(product);
+
+  // useEffect(() => {
+    // dispatch(getOneProduct(props.match.params.id));
+  // }, [dispatch]);
+
   return (
     <Grid 
       container 
@@ -33,7 +46,7 @@ function ProductItem (props) {
         <Card>  
           <CardMedia className={classes.media}
               image="https://picsum.photos/200/300"
-              title='hello'
+              title={product.name}
             />
 
         </Card>
@@ -44,17 +57,17 @@ function ProductItem (props) {
 
           <CardContent>
             <Typography gutterBottom variant="h3" component="p">
-              My title
+              {product.name}
             </Typography>
             <Typography variant="h6" color="textSecondary" component="p">
-              price
+              {product.price}
             </Typography>
             
           </CardContent>
 
           <Box ml={2}>
             <Typography variant='h5'>
-              desc
+              {product.description}
             </Typography>
             <Box className={classes.review}>
               <ChatBubbleOutlineSharpIcon/>

@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React, {useState} from 'react';
+import {Redirect} from 'react-router-dom';
 import {
   Avatar,
   Button,
@@ -16,14 +16,36 @@ import {
 
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
+import {useDispatch, useSelector} from 'react-redux';
 
 // Relative imports
 import Copyright from '../Footer/Copyright';
 import useStyles from './styles';
+import {logIn} from '../../actions/users'
 
 function SignIn() {
-  const classes = useStyles();
+  const [loginDetails, setloginDetails] = useState({ email:'', password:'' });
+  const [signedin, setSignIn] = useState(false);
 
+  const response = useSelector((state) => state.users);
+
+  const classes = useStyles();
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //console.log(loginDetails);
+    dispatch(logIn(loginDetails));
+    console.log(response.success);
+    console.log(response);
+    setSignIn(response.success);
+    /* if(response)
+      console.log(response.success);
+    else 
+      console.log('Failed'); */
+  }
+
+  if(!signedin) {
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -35,7 +57,7 @@ function SignIn() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate onSubmit = {handleSubmit}>
           <TextField
             variant="outlined"
             margin="normal"
@@ -46,6 +68,8 @@ function SignIn() {
             name="email"
             autoComplete="email"
             autoFocus
+            value = {loginDetails.email}
+            onChange = {(e) => setloginDetails({...loginDetails, email: e.target.value})}
           />
           <TextField
             variant="outlined"
@@ -57,6 +81,8 @@ function SignIn() {
             type="password"
             id="password"
             autoComplete="current-password"
+            value = {loginDetails.password}
+            onChange = {(e) => setloginDetails({...loginDetails, password: e.target.value})}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
@@ -90,6 +116,15 @@ function SignIn() {
       </Box>
     </Container>
   );
+  }
+  else 
+  {
+    //setSignIn(false);
+    return(
+      //<Link to = "/login">Signed Up! Click Here to Log in</Link>
+      <Redirect to = "/" />
+    );
+  }
 }
 
 export default SignIn;
