@@ -4,16 +4,14 @@ import {
   Typography, 
   Button, 
   Container, 
-  Box,
-  Menu,
-  MenuItem
+  Box
 } from '@material-ui/core';
 
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 
 import {useState} from 'react';
 import useStyles from './styles.js'
-import DropDown from '../DropDown/DropDown'
+import {MenDropDown, WomenDropDown} from '../DropDown/DropDown'
 import { Link } from 'react-router-dom'
 
 function NavBar () {
@@ -21,9 +19,9 @@ function NavBar () {
 
   const [anchorEl, setAnchorEl] = useState(null);
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+  // const handleClick = (event) => {
+  //   setAnchorEl(event.currentTarget);
+  // };
 
   const handleClose = () => {
     setAnchorEl(null);
@@ -38,9 +36,9 @@ function NavBar () {
             </Typography>  
 
 
-          <DropDown />
+          <MenDropDown />
 
-          <DropDown />
+          <WomenDropDown />
 
           <Box display="flex" flexDirection="row-reverse" justifyContent="space-between">
             <Button className ={classes.navbarText} component = {Link} to = "/checkout"><ShoppingCartOutlinedIcon/></Button>
