@@ -13,7 +13,7 @@ import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 
 import {useState} from 'react';
 import useStyles from './styles.js'
-import DropDown from '../DropDown/DropDown'
+import {MenDropDown, WomenDropDown} from '../DropDown/DropDown'
 import { Link } from 'react-router-dom'
 
 function NavBar () {
@@ -38,9 +38,9 @@ function NavBar () {
             </Typography>  
 
 
-          <DropDown />
+          <MenDropDown />
 
-          <DropDown />
+          <WomenDropDown />
 
           <Box display="flex" flexDirection="row-reverse" justifyContent="space-between">
             <Button className ={classes.navbarText} component = {Link} to = "/checkout"><ShoppingCartOutlinedIcon/></Button>
