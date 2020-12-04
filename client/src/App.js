@@ -15,6 +15,7 @@ import useStyles from './styles'
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
 import Products from './components/Products/Products';
+import ProductsByCat from './components/Products/ProductsByCat';
 import ScrollToTop from './ScrollToTop';
 
 import {BrowserRouter as Router, Route, withRouter} from 'react-router-dom';
@@ -34,6 +35,7 @@ function App() {
           <Route exact path = "/signup" component = {SignUp} />
           <Route exact path='/' component={Products} />
           <Route path = "/products/:id" render={(props) => <ProductItem {...props}/>} />
+          <Route path = "/products/cat/:cat" render={(props) => <ProductsByCat {...props} />}/>
         </ScrollToTop>
         
         {/* <Route path = "/products/:id" component = {ProductItem} /> */}
