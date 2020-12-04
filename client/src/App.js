@@ -31,7 +31,9 @@ function App() {
         <Route exact path = "/checkout" component = {Checkout} />
         <Route exact path = "/signup" component = {SignUp} />
         <Route exact path='/' component={Products} />
-        <Route path = "/products/:id" component = {ProductItem} />
+        <Route path = "/products/:id" render={(props) => <ProductItem {...props}/>} />
+        
+        {/* <Route path = "/products/:id" component = {ProductItem} /> */}
       
       
       </Router>

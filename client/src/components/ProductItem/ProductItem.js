@@ -25,11 +25,33 @@ function ProductItem (props) {
   const classes = useStyles();
   const dispatch = useDispatch(); 
 
-  console.log(props.match.params.id);
-  dispatch(getOneProduct(props.match.params.id));
-
   const product = useSelector((state) => state.products);
+
+  // useEffect(() => {
+  //   dispatch(getOneProduct(props.match.params.id));
+  // }, [dispatch]);
+
+  // const [currentProduct, setCurrentProduct] = useState(null); 
+
+  // console.log(props.match.params.id);
+  console.log(props.location.state);
+  // try {
+  //   dispatch(getOneProduct(props.match.params.id));
+  // }
+  // catch (err) {
+  //   console.log(err);
+  // }
+
   console.log(product);
+
+  // if (product._id === props.match.params.id) {
+  //   setCurrentProduct(product);
+  //   console.log('yes match set done')
+  //   console.log(currentProduct);
+  // } else {
+  //   console.log('no')
+  //   console.log(currentProduct);
+  // }
 
   // useEffect(() => {
     // dispatch(getOneProduct(props.match.params.id));

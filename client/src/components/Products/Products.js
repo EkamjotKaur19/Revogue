@@ -85,7 +85,7 @@ const Products = function () {
     // console.log(`clicked! ${props.currentId}`);
     return(
     
-      <Redirect to = {{pathname: `/products/${currentId}`}} />
+      <Redirect to = {{pathname: `/products/${currentId}`, state: { clicked: true }}} />
       // <Redirect to = {`/products/${currentId}`} /> 
     );
   }

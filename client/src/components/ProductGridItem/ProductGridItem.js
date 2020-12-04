@@ -31,7 +31,6 @@ function ProductGridItem (props) {
 
   const handleClick = (e) => {
     // console.log(`clicked first! ${props.productId}`);
-
     e.preventDefault();
     props.setCurrentId(props.productId);
     dispatch(getOneProduct(props.productId));
