@@ -4,9 +4,7 @@ import {
   Typography, 
   Button, 
   Container, 
-  Box,
-  Menu,
-  MenuItem
+  Box
 } from '@material-ui/core';
 
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
@@ -21,9 +19,9 @@ function NavBar () {
 
   const [anchorEl, setAnchorEl] = useState(null);
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+  // const handleClick = (event) => {
+  //   setAnchorEl(event.currentTarget);
+  // };
 
   const handleClose = () => {
     setAnchorEl(null);
