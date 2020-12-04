@@ -84,15 +84,10 @@ const Products = function () {
   else {
     // console.log(`clicked! ${props.currentId}`);
     return(
-      <Router>
-        <Switch>
-          <Redirect to = {{pathname: `/products/${currentId}`}} />
-        </Switch>
-      </Router>
-      
+      <Redirect to = {`/products/${currentId}`} /> 
     );
   }
 }
 
 
-export default Products;
+export default withRouter(Products);
