@@ -25,6 +25,9 @@ function ProductItem (props) {
   const classes = useStyles();
   const dispatch = useDispatch(); 
 
+  if(props.location.state === undefined) 
+    return null;
+  
   const product = props.location.state.myCurrentProduct;
 
   // useEffect(() => {
