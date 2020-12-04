@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MenMenuItems, WomenMenuItems } from '../MenuItems/MenuItems';
-import { Link } from 'react-router-dom';
+import { Link , Redirect} from 'react-router-dom';
 import { Menu, MenuItem, Button} from '@material-ui/core';
 
 export function MenDropDown() {
@@ -13,6 +13,8 @@ export function MenDropDown() {
    const handleClose = () => {
     setAnchorEl(null);
   };
+
+
   return (
     <>
         <Button aria-controls="simple-menu" aria-haspopup="true" onMouseEnter={handleClick} >
@@ -34,7 +36,8 @@ export function MenDropDown() {
             <MenuItem onClick={handleClose}>Logout</MenuItem> */}
             {MenMenuItems.map((item, index) => {
             return (
-                <MenuItem key={index} onClick={handleClose}>{item.title}</MenuItem>
+                <MenuItem key={index} onClick={handleClose} component = {Link} to = {`/products/cat/${item.category}`}>{item.title}</MenuItem>
+
             );
             })}
         </Menu>
@@ -73,7 +76,7 @@ export function WomenDropDown() {
            <MenuItem onClick={handleClose}>Logout</MenuItem> */}
            {WomenMenuItems.map((item, index) => {
            return (
-               <MenuItem key={index} onClick={handleClose}>{item.title}</MenuItem>
+               <MenuItem key={index} onClick={handleClose} component = {Link} to = {`/products/cat/${item.category}`}>{item.title}</MenuItem>
            );
            })}
        </Menu>
