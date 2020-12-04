@@ -9,7 +9,7 @@ import theme from './theme';
 import reducers from './reducers';
 
 import App from './App';
-
+import ProductItem from './components/ProductItem/ProductItem';
 // import AddressForm from './components/Checkout/Forms/AddressForm';
 // import Checkout from './components/Checkout/Checkout';
 // import PaymentForm from './components/Checkout/Forms/PaymentForm';
@@ -26,7 +26,7 @@ ReactDOM.render(
   <ThemeProvider theme={theme}>
     <Provider store={store}>
     <App/>
-    {/* <Checkout /> */}
+    {/* <ProductItem /> */}
     </Provider> 
   </ThemeProvider>,
 

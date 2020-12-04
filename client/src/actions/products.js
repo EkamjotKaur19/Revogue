@@ -8,3 +8,12 @@ export const getProducts = () => async (dispatch) => {
     console.log(error.message);
   }  
 }
+
+export const getOneProduct = (id) => async (dispatch) => {
+  try {
+    const {data} = await api.getOneProduct(id);
+    dispatch({type: 'GET_ONE_PRODUCT', payload: data});
+  } catch (error) {
+    console.log(error.message);
+  }
+}

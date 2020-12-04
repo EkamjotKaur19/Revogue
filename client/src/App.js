@@ -1,86 +1,53 @@
-import {useEffect} from 'react';
 import {
   Box,
   Typography,
-  Container,
-  Grid,
-  CircularProgress,
 } from '@material-ui/core';
 
-import {useDispatch, useSelector} from 'react-redux';
 
 import SignIn from './components/Login/SignIn';
 import Checkout from './components/Checkout/Checkout';
 import Review from './components/Checkout/Forms/Review';
 import SignUp from './components/Login/SignUp';
+import ProductItem from './components/ProductItem/ProductItem'
 
 // Relative imports
 import useStyles from './styles'
 import NavBar from './components/NavBar/NavBar';
-import GridItem from './components/GridItem/GridItem';
 import Footer from './components/Footer/Footer';
+import Products from './components/Products/Products';
+import ScrollToTop from './ScrollToTop';
 
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, withRouter} from 'react-router-dom';
 
-import {getProducts} from './actions/products'
 
 function App() {
   const classes = useStyles();
-  const dispatch = useDispatch(); 
-  const products = useSelector((state) => state.products);
-
-
-  console.log(products);
-
-  useEffect(() => {
-    dispatch(getProducts());
-  }, [dispatch]);
+  
 
   return (
     <div className="App">
       <Router>
         <NavBar />
-        <Route path = "/login" component = {SignIn} />
-        <Route path = "/checkout" component = {Checkout} />
-        <Route path = "/signup" component = {SignUp} />
+        <ScrollToTop>
+          <Route exact path = "/login" component = {SignIn} />
+          <Route exact path = "/checkout" component = {Checkout} />
+          <Route exact path = "/signup" component = {SignUp} />
+          <Route exact path='/' component={Products} />
+          <Route path = "/products/:id" render={(props) => <ProductItem {...props}/>} />
+        </ScrollToTop>
+        
+        {/* <Route path = "/products/:id" component = {ProductItem} /> */}
+      
+      
       </Router>
       
-      <Box className={classes.hero}>
-        <Box>
-          <Typography variant="h2">
-            One stop for all your needs!
-          </Typography>
-        </Box>
-      </Box>
-
-      <Container maxWidth='lg' className={classes.itemsContainer}>
-        <Typography variant="h4" className={classes.itemTitle}>
-          Items
-        </Typography>
+      
       
 
-        {!products.length ? (
-          <div style={{display: 'flex', justifyContent: 'center'}}>
-            <CircularProgress />
-          </div>) : (
-          <Grid container spacing={3}> {
-            
-            products.map((product) => (
-              <GridItem key={product._id}
-                img={!product.image ? "https://picsum.photos/200/300" : product.image}
-                title={product.name}
-                avatar={!product.avatar ? 'https://i.pinimg.com/originals/5b/c6/e6/5bc6e6b23f963cb859ac7aa748029a78.png' : product.avatar}
-                price={'₹' + product.price}
-                desc={product.description}
-              />
-            ))
-          }
-          </Grid>
-        )}
-
-      </Container>
+      {/* <Products /> */}
 
       <Footer />
+
     </div>
     
   );
