@@ -16,7 +16,7 @@ import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
 import Products from './components/Products/Products';
 
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, withRouter} from 'react-router-dom';
 
 
 function App() {
@@ -30,20 +30,19 @@ function App() {
         <Route exact path = "/login" component = {SignIn} />
         <Route exact path = "/checkout" component = {Checkout} />
         <Route exact path = "/signup" component = {SignUp} />
+        <Route exact path='/' component={Products} />
         <Route path = "/products/:id" component = {ProductItem} />
+      
+      
       </Router>
       
-      <Box className={classes.hero}>
-        <Box>
-          <Typography variant="h2">
-            One stop for all your needs!
-          </Typography>
-        </Box>
-      </Box>
+      
+      
 
-      <Products />
+      {/* <Products /> */}
 
       <Footer />
+
     </div>
     
   );

@@ -6,11 +6,16 @@ import {
   Container,
   Grid,
   CircularProgress,
+  Box,
 } from '@material-ui/core';
 import {useDispatch, useSelector} from 'react-redux';
 
 import {Redirect} from 'react-router-dom';
-import {BrowserRouter as Router} from 'react-router-dom';
+
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux'
+
+import {BrowserRouter as Router, Switch} from 'react-router-dom';
 
 // Relative imports
 import useStyles from './styles'
@@ -18,7 +23,7 @@ import ProductGridItem from '../ProductGridItem/ProductGridItem';
 import {getProducts} from '../../actions/products';
 
 
-export default function Products() {
+const Products = function () {
   const classes = useStyles();
 
   const [currentId, setCurrentId] = useState(false);
@@ -35,6 +40,15 @@ export default function Products() {
 
   if (!currentId) {
     return (
+      <>
+      <Box className={classes.hero}>
+        <Box>
+          <Typography variant="h2">
+            One stop for all your needs!
+          </Typography>
+        </Box>
+      </Box>
+
       <Container maxWidth='lg' className={classes.itemsContainer}>
           <Typography variant="h4" className={classes.itemTitle}>
             Items
@@ -64,14 +78,21 @@ export default function Products() {
           )}
 
         </Container>
+        </>
     )
   }
   else {
     // console.log(`clicked! ${props.currentId}`);
     return(
       <Router>
-        <Redirect to = {{pathname: `/products/${currentId}`}} />
+        <Switch>
+          <Redirect to = {{pathname: `/products/${currentId}`}} />
+        </Switch>
       </Router>
+      
     );
   }
 }
+
+
+export default Products;

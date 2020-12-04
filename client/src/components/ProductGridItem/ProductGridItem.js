@@ -9,6 +9,7 @@ import {
   CardContent,
   Avatar,
 } from '@material-ui/core';
+import { withRouter } from 'react-router-dom';
 import {Redirect} from 'react-router-dom';
 import {BrowserRouter as Router} from 'react-router-dom';
 
@@ -88,4 +89,4 @@ function ProductGridItem (props) {
   
 }
 
-export default ProductGridItem;
+export default withRouter(ProductGridItem);
