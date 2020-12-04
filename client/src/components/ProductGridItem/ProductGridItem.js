@@ -46,11 +46,11 @@ function ProductGridItem (props) {
               <CardMedia
                 className={classes.media}
                 image={!props.product.image ? "https://picsum.photos/200/300" : props.product.image}
-                title={props.product.title}
+                title={props.product.name}
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
-                  {props.product.title}
+                  {props.product.name}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
                   {props.product.desc}
