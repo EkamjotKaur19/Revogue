@@ -64,7 +64,7 @@ function ProductGridItem (props) {
   
               <Box ml={2}>
                 <Typography variant='h5'>
-                  {props.product.price}
+                  {'₹' + props.product.price}
                 </Typography>
               </Box>
             </Box>

@@ -82,7 +82,7 @@ function ProductItem (props) {
               {product.name}
             </Typography>
             <Typography variant="h6" color="textSecondary" component="p">
-              {product.price}
+              {'₹' + product.price}
             </Typography>
             
           </CardContent>
@@ -91,9 +91,6 @@ function ProductItem (props) {
             <Typography variant='h5'>
               {product.description}
             </Typography>
-            <Box className={classes.review}>
-              <ChatBubbleOutlineSharpIcon/>
-            </Box>
           </Box>
         </Card>
       </Grid>
