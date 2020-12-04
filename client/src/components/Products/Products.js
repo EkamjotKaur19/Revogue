@@ -26,7 +26,7 @@ import {getProducts} from '../../actions/products';
 const Products = function () {
   const classes = useStyles();
 
-  const [currentId, setCurrentId] = useState(false);
+  const [currentProduct, setCurrentProduct] = useState(null);
   
   const dispatch = useDispatch(); 
   const products = useSelector((state) => state.products);
@@ -38,7 +38,7 @@ const Products = function () {
     dispatch(getProducts());
   }, [dispatch]);
 
-  if (!currentId) {
+  if (!currentProduct) {
     return (
       <>
       <Box className={classes.hero}>
@@ -63,9 +63,9 @@ const Products = function () {
               
               products.map((product) => (
                 <ProductGridItem key={product._id}
-                  productId={product._id}
-                  currentId={currentId}
-                  setCurrentId={setCurrentId}
+                  product={product}
+                  currentProduct={currentProduct}
+                  setCurrentProduct={setCurrentProduct}
                   img={!product.image ? "https://picsum.photos/200/300" : product.image}
                   title={product.name}
                   avatar={!product.avatar ? 'https://i.pinimg.com/originals/5b/c6/e6/5bc6e6b23f963cb859ac7aa748029a78.png' : product.avatar}
@@ -85,7 +85,7 @@ const Products = function () {
     // console.log(`clicked! ${props.currentId}`);
     return(
     
-      <Redirect to = {{pathname: `/products/${currentId}`, state: { clicked: true }}} />
+      <Redirect to = {{pathname: `/products/${currentProduct._id}`, state: { myCurrentProduct: currentProduct }}} />
       // <Redirect to = {`/products/${currentId}`} /> 
     );
   }

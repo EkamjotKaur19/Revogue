@@ -25,7 +25,7 @@ function ProductItem (props) {
   const classes = useStyles();
   const dispatch = useDispatch(); 
 
-  const product = useSelector((state) => state.products);
+  const product = props.location.state.myCurrentProduct;
 
   // useEffect(() => {
   //   dispatch(getOneProduct(props.match.params.id));

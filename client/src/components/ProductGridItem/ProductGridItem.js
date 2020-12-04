@@ -32,8 +32,8 @@ function ProductGridItem (props) {
   const handleClick = (e) => {
     // console.log(`clicked first! ${props.productId}`);
     e.preventDefault();
-    props.setCurrentId(props.productId);
-    dispatch(getOneProduct(props.productId));
+    props.setCurrentProduct(props.product);
+    dispatch(getOneProduct(props.product._id));
   }
 
   // TODO: fetch the product?? idk
@@ -45,26 +45,26 @@ function ProductGridItem (props) {
           <CardActionArea onClick={handleClick}>
               <CardMedia
                 className={classes.media}
-                image={props.img}
-                title={props.title}
+                image={!props.product.image ? "https://picsum.photos/200/300" : props.product.image}
+                title={props.product.title}
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
-                  {props.title}
+                  {props.product.title}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  {props.desc}
+                  {props.product.desc}
                 </Typography>
               </CardContent>
   
           </CardActionArea>
           <CardActions className={classes.cardActions}>
             <Box className={classes.buyer}>
-              <Avatar src={props.avatar} />
+              <Avatar src={!props.product.avatar ? 'https://i.pinimg.com/originals/5b/c6/e6/5bc6e6b23f963cb859ac7aa748029a78.png' : props.product.avatar} />
   
               <Box ml={2}>
                 <Typography variant='h5'>
-                  {props.price}
+                  {props.product.price}
                 </Typography>
               </Box>
             </Box>
