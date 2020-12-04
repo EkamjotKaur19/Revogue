@@ -10,8 +10,6 @@ import {
 } from '@material-ui/core';
 import {useDispatch, useSelector} from 'react-redux';
 
-import {Redirect} from 'react-router-dom';
-
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux'
 
@@ -31,9 +29,7 @@ const ProductsByCat = function (props) {
   const dispatch = useDispatch(); 
   const products = useSelector((state) => state.products);
 
-  console.log(props.location.pathname);
   const category = props.location.pathname.substring(14);
-  console.log(category);
   
   // TODO: change this to functionality
   console.log(products);
@@ -42,7 +38,6 @@ const ProductsByCat = function (props) {
     dispatch(getProductsByCat(category));
   }, [dispatch]);
 
-  console.log(products);
 
   // if (!currentProduct) {
     return (
