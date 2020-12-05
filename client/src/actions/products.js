@@ -17,3 +17,12 @@ export const getOneProduct = (id) => async (dispatch) => {
     console.log(error.message);
   }
 }
+
+export const getProductsByCat = (category) => async (dispatch) => {
+  try {
+    const {data} = await api.getProductsByCat(category);
+    dispatch({type: 'GET_CAT_PRODUCTS', payload: data});
+  } catch (error) {
+    console.log(error.message);
+  }
+}

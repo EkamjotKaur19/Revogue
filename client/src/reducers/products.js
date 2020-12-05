@@ -4,6 +4,8 @@ const reducer = (state = [], action) => {
       return action.payload;
     case 'GET_ONE_PRODUCT':
       return action.payload;
+    case 'GET_CAT_PRODUCTS':
+      return action.payload;
     default:
       return state;
   }

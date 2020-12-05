@@ -1,18 +1,15 @@
 export const MenMenuItems = [
     {
       title: 'Shirts',
-      path: '/men_shirts',
-      cName: 'dropdown-link'
+      category: 'men_shirt'
     },
     {
       title: 'Trousers',
-      path: '/men_trousers',
-      cName: 'dropdown-link'
+      category: 'men_trouser'
     },
     {
       title: 'Accessories',
-      path: '/men_accessories',
-      cName: 'dropdown-link'
+      category: 'accessory'
     },
   ];
 
@@ -20,22 +17,18 @@ export const MenMenuItems = [
   export const WomenMenuItems = [
     {
       title: 'Tops',
-      path: '/women_shirts',
-      cName: 'dropdown-link'
+      category: 'women_top'
     },
     {
       title: 'Dress',
-      path: '/women_dress',
-      cName: 'dropdown-link'
+      category: 'women_dress'
     },
     {
       title: 'Trousers',
-      path: '/women_trousers',
-      cName: 'dropdown-link'
+      category: 'women_trouser'
     },
     {
       title: 'Accessories',
-      path: '/women_accessories',
-      cName: 'dropdown-link'
+      category: 'accessory'
     }
   ];
