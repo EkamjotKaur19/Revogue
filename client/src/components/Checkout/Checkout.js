@@ -40,6 +40,11 @@ export default function Checkout() {
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
+    //sessionStorage.setItem('cart', '[]');
+  };
+
+  const handleFinal = () => {
+    setActiveStep(activeStep + 1);
     sessionStorage.setItem('cart', '[]');
   };
 
@@ -85,7 +90,7 @@ export default function Checkout() {
                   <Button
                     variant="contained"
                     color="primary"
-                    onClick={handleNext}
+                    onClick={activeStep === steps.length - 1 ? handleFinal : handleNext}
                     className={classes.button}
                   >
                     {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
