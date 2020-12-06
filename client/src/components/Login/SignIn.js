@@ -21,7 +21,7 @@ import {useDispatch, useSelector} from 'react-redux';
 // Relative imports
 import Copyright from '../Footer/Copyright';
 import useStyles from './styles';
-import {logIn} from '../../actions/users'
+import {logIn} from '../../actions/users';
 
 function SignIn() {
   const [loginDetails, setloginDetails] = useState({ email:'', password:'' });
