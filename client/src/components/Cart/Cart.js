@@ -1,30 +1,19 @@
 import React from 'react'
 import {
-  Button,
   Typography,
 } from '@material-ui/core';
 
-import {useDispatch, useSelector} from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import {useEffect, useState} from 'react';
-import {addItemCart, getItemsCart} from '../../actions/cart';
+import {useEffect} from 'react';
 
 function Cart() {
-  const dispatch = useDispatch();
-  const cartItems = useSelector((state) => state.cart); 
-  // const product = useSelector((state) => state.products);
+  let cartstring = sessionStorage.getItem('cart')
+  let cartItems = JSON.parse(cartstring);
 
-  console.log(cartItems);
-
-  // const handleClick = (e) => {
-  //   e.preventDefault();
-  //   // dispatch(addItemCart())
-  //   console.log(cartItems);
-  //   // console.log(product);
-  // }
+  console.log(cartstring);
 
   useEffect(() => {
-    dispatch(getItemsCart());
+    // dispatch(getItemsCart());
     console.log(cartItems);
   }, []);
 
@@ -35,7 +24,7 @@ function Cart() {
           <Typography>
             {cartItems.map((cartItem) => {
               <Typography>
-                {cartItem.name + ' $' + cartItem.price}
+                {cartItem.name + ' ₹' + cartItem.price}
               </Typography>
             })}
           </Typography>
@@ -45,9 +34,6 @@ function Cart() {
           </Typography>
         )}
       </Typography>
-      {/* <Button onClick={handleClick}>
-          Add Item
-      </Button> */}
     </>
   )
 }

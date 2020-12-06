@@ -4,28 +4,21 @@ import {
   Grid,
   Card,
   IconButton,
-  CardActionArea,
-  CardActions,
   CardMedia,
   CardContent,
-  Avatar,
 } from '@material-ui/core';
-import {useSelector, useDispatch} from 'react-redux';
-import {useEffect, useState} from 'react';
+
 
 
 // Icons
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-import ChatBubbleOutlineSharpIcon from '@material-ui/icons/ChatBubbleOutlineSharp';
 
 // Relative imports
 import useStyles from './styles'
-import { getOneProduct } from '../../api';
-// import { getOneProduct } from '../../api';
+
 
 function ProductItem (props) {
   const classes = useStyles();
-  const dispatch = useDispatch(); 
 
   if(props.location.state === undefined) 
     return null;
@@ -33,6 +26,33 @@ function ProductItem (props) {
   const product = props.location.state.myCurrentProduct;
   console.log(props.location.state);
   console.log(product);
+
+  const handleAddItem = (e) => {
+    /* dispatch(addItemCart(product));
+    console.log(product); */
+    var item = product;
+    console.log(item);
+    let cartstring = sessionStorage.getItem('cart')
+    /* if (!cartstring) {
+      cartstring = sessionStorage.setItem('cart', '[]')
+    } */
+    
+    let cart = JSON.parse(cartstring);
+    var inCart = false;
+
+    for(var i in cart) {
+      if(cart[i]._id === item._id && cart[i].name === item.name){
+        inCart = true;
+        cart[i].quantity += item.quantity;
+        break;
+      }
+    }
+    if(!inCart)
+      cart.push(item);
+
+    console.log(cart);
+    sessionStorage.setItem('cart', JSON.stringify(cart));
+  }
 
   return (
     <Grid 
@@ -69,7 +89,7 @@ function ProductItem (props) {
               {product.description}
             </Typography>
           </Box>
-          <IconButton className={classes.review}>
+          <IconButton className={classes.review} onClick={handleAddItem}>
                 <AddShoppingCartIcon/>
           </IconButton>
         </Card>
