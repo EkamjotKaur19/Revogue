@@ -27,8 +27,8 @@ function NavBar () {
 
   const handleClose = () => {
     setAnchorEl(null);
-    if(localStorage.getItem('useremail'))
-      setLogin({'data': localStorage.getItem('useremail')});
+    if(sessionStorage.getItem('useremail'))
+      setLogin({'data': sessionStorage.getItem('useremail')});
   };
 
   return (
