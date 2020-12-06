@@ -40,6 +40,7 @@ export default function Checkout() {
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
+    sessionStorage.setItem('cart', '[]');
   };
 
   const handleBack = () => {
