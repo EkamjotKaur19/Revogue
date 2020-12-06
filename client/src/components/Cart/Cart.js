@@ -5,24 +5,33 @@ import {
 } from '@material-ui/core';
 
 import {useDispatch, useSelector} from 'react-redux';
-import {addItemCart} from '../../actions/cart';
+import { withRouter } from 'react-router-dom';
+import {useEffect, useState} from 'react';
+import {addItemCart, getItemsCart} from '../../actions/cart';
 
-export default function Cart() {
+function Cart() {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart); 
-  const product = useSelector((state) => state.products);
+  // const product = useSelector((state) => state.products);
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    // dispatch(addItemCart())
+  console.log(cartItems);
+
+  // const handleClick = (e) => {
+  //   e.preventDefault();
+  //   // dispatch(addItemCart())
+  //   console.log(cartItems);
+  //   // console.log(product);
+  // }
+
+  useEffect(() => {
+    dispatch(getItemsCart());
     console.log(cartItems);
-    console.log(product);
-  }
+  }, []);
 
   return (
     <>
-      <Typography>
-        {!cartItems.length ? (
+      <Typography component={'span'}>
+        {cartItems.length ? (
           <Typography>
             {cartItems.map((cartItem) => {
               <Typography>
@@ -31,14 +40,16 @@ export default function Cart() {
             })}
           </Typography>
         ) : (
-          <Typography>
+          <Typography component={'span'}>
             No items
           </Typography>
         )}
       </Typography>
-      <Button onClick={handleClick}>
+      {/* <Button onClick={handleClick}>
           Add Item
-      </Button>
+      </Button> */}
     </>
   )
 }
+
+export default withRouter(Cart);

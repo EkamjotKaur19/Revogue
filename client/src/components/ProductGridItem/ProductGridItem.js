@@ -5,6 +5,7 @@ import {
   Card,
   CardActionArea,
   CardActions,
+  IconButton,
   CardMedia,
   CardContent,
   Avatar,
@@ -19,11 +20,14 @@ import {useDispatch} from 'react-redux';
 
 
 // Icons
-import ChatBubbleOutlineSharpIcon from '@material-ui/icons/ChatBubbleOutlineSharp';
+// import ChatBubbleOutlineSharpIcon from '@material-ui/icons/ChatBubbleOutlineSharp';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
 // Relative imports
 import {getOneProduct} from '../../actions/products'
 import useStyles from './styles'
+import {addItemCart} from '../../actions/cart';
+
 
 function ProductGridItem (props) {
   const classes = useStyles();
@@ -34,6 +38,11 @@ function ProductGridItem (props) {
     e.preventDefault();
     props.setCurrentProduct(props.product);
     dispatch(getOneProduct(props.product._id));
+  }
+
+  const handleAddItem = (e) => {
+    dispatch(addItemCart(props.product));
+    console.log(props.product);
   }
 
   // TODO: fetch the product?? idk
@@ -69,9 +78,9 @@ function ProductGridItem (props) {
               </Box>
             </Box>
   
-            <Box className={classes.review}>
-                <ChatBubbleOutlineSharpIcon/>
-            </Box>
+            <IconButton className={classes.review} onClick={handleAddItem}>
+                <AddShoppingCartIcon/>
+            </IconButton>
           </CardActions>  
         </Card>
       </Grid>
