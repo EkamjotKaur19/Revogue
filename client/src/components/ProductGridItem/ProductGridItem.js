@@ -41,8 +41,30 @@ function ProductGridItem (props) {
   }
 
   const handleAddItem = (e) => {
-    dispatch(addItemCart(props.product));
-    console.log(props.product);
+    /* dispatch(addItemCart(props.product));
+    console.log(props.product); */
+    var item = props.product;
+    console.log(item);
+    let cartstring = sessionStorage.getItem('cart')
+    /* if (!cartstring) {
+      cartstring = sessionStorage.setItem('cart', '[]')
+    } */
+    
+    let cart = JSON.parse(cartstring);
+    var inCart = false;
+
+    for(var i in cart) {
+      if(cart[i]._id === item._id && cart[i].name === item.name){
+        inCart = true;
+        cart[i].quantity += item.quantity;
+        break;
+      }
+    }
+    if(!inCart)
+      cart.push(item);
+
+    console.log(cart);
+    sessionStorage.setItem('cart', JSON.stringify(cart));
   }
 
   // TODO: fetch the product?? idk
