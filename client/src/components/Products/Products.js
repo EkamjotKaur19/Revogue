@@ -13,9 +13,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 
 import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux'
 
-import {BrowserRouter as Router, Switch} from 'react-router-dom';
 
 // Relative imports
 import useStyles from './styles'
@@ -82,11 +80,8 @@ const Products = function () {
     )
   }
   else {
-    // console.log(`clicked! ${props.currentId}`);
     return(
-    
       <Redirect to = {{pathname: `/products/${currentProduct._id}`, state: { myCurrentProduct: currentProduct }}} />
-      // <Redirect to = {`/products/${currentId}`} /> 
     );
   }
 }

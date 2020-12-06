@@ -6,5 +6,5 @@ import users from './users';
 
 export default combineReducers({
   products: products,
-  users: users
+  users: users,
 });

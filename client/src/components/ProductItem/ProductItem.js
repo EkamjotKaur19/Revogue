@@ -3,62 +3,56 @@ import {
   Typography,
   Grid,
   Card,
-  CardActionArea,
-  CardActions,
+  IconButton,
   CardMedia,
   CardContent,
-  Avatar,
 } from '@material-ui/core';
-import {useSelector, useDispatch} from 'react-redux';
-import {useEffect, useState} from 'react';
+
 
 
 // Icons
-import ChatBubbleOutlineSharpIcon from '@material-ui/icons/ChatBubbleOutlineSharp';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
 // Relative imports
 import useStyles from './styles'
-import { getOneProduct } from '../../api';
-// import { getOneProduct } from '../../api';
+
 
 function ProductItem (props) {
   const classes = useStyles();
-  const dispatch = useDispatch(); 
 
   if(props.location.state === undefined) 
     return null;
   
   const product = props.location.state.myCurrentProduct;
-
-  // useEffect(() => {
-  //   dispatch(getOneProduct(props.match.params.id));
-  // }, [dispatch]);
-
-  // const [currentProduct, setCurrentProduct] = useState(null); 
-
-  // console.log(props.match.params.id);
   console.log(props.location.state);
-  // try {
-  //   dispatch(getOneProduct(props.match.params.id));
-  // }
-  // catch (err) {
-  //   console.log(err);
-  // }
-
   console.log(product);
 
-  // if (product._id === props.match.params.id) {
-  //   setCurrentProduct(product);
-  //   console.log('yes match set done')
-  //   console.log(currentProduct);
-  // } else {
-  //   console.log('no')
-  //   console.log(currentProduct);
-  // }
+  const handleAddItem = (e) => {
+    /* dispatch(addItemCart(product));
+    console.log(product); */
+    var item = product;
+    console.log(item);
+    let cartstring = sessionStorage.getItem('cart')
+    /* if (!cartstring) {
+      cartstring = sessionStorage.setItem('cart', '[]')
+    } */
+    
+    let cart = JSON.parse(cartstring);
+    var inCart = false;
 
-  // useEffect(() => {
-    // dispatch(getOneProduct(props.match.params.id));
-  // }, [dispatch]);
+    for(var i in cart) {
+      if(cart[i]._id === item._id && cart[i].name === item.name){
+        inCart = true;
+        cart[i].quantity += item.quantity;
+        break;
+      }
+    }
+    if(!inCart)
+      cart.push(item);
+
+    console.log(cart);
+    sessionStorage.setItem('cart', JSON.stringify(cart));
+  }
 
   return (
     <Grid 
@@ -95,6 +89,9 @@ function ProductItem (props) {
               {product.description}
             </Typography>
           </Box>
+          <IconButton className={classes.review} onClick={handleAddItem}>
+                <AddShoppingCartIcon/>
+          </IconButton>
         </Card>
       </Grid>
     </Grid>

@@ -19,12 +19,16 @@ function NavBar () {
 
   const [anchorEl, setAnchorEl] = useState(null);
 
+  const [login, setLogin] = useState({'data' : 'Log In'});
+
   // const handleClick = (event) => {
   //   setAnchorEl(event.currentTarget);
   // };
 
   const handleClose = () => {
     setAnchorEl(null);
+    if(localStorage.getItem('useremail'))
+      setLogin({'data': localStorage.getItem('useremail')});
   };
 
   return (
@@ -44,7 +48,7 @@ function NavBar () {
             <Button className ={classes.navbarText} component = {Link} to = "/checkout"><ShoppingCartOutlinedIcon/></Button>
             <Button className={classes.navbarText}>Catalog</Button>
             <Button className={classes.navbarText}>About Us</Button>
-            <Button className={classes.navbarText} component = {Link} to = "/login">Login</Button>
+            <Button className={classes.navbarText} component = {Link} to = "/login">{login.data}</Button>
           </Box>
         </Container> 
       </Toolbar>

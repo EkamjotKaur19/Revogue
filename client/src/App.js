@@ -9,6 +9,7 @@ import Checkout from './components/Checkout/Checkout';
 import Review from './components/Checkout/Forms/Review';
 import SignUp from './components/Login/SignUp';
 import ProductItem from './components/ProductItem/ProductItem'
+import Cart from './components/Cart/Cart';
 
 // Relative imports
 import useStyles from './styles'
@@ -29,6 +30,7 @@ import CartContainer from './components/Cart/CartContainer';
 function App() {
   // const classes = useStyles();
   
+  sessionStorage.setItem('cart', '[]');
 
   const { state: { loading }, } = useGlobalContext();
 
@@ -54,6 +56,7 @@ function App() {
           <Route exact path='/' component={Products} />
           <Route path = "/products/:id" render={(props) => <ProductItem {...props}/>} />
           <Route path = "/products/cat/:cat" render={(props) => <ProductsByCat {...props} />}/>
+          <Route exact path = "/cart" component = {Cart} />
         </ScrollToTop>
         {/* <Route path = "/products/:id" component = {ProductItem} /> */}
       </Router>     
