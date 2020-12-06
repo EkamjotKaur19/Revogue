@@ -12,11 +12,10 @@ import useStyles from './styles';
 
 // TODO: Replace with state - cart items
 const products = [
-  { name: 'Product 1', desc: 'A nice thing', price: '$9.99' },
-  { name: 'Product 2', desc: 'Another thing', price: '$3.45' },
-  { name: 'Product 3', desc: 'Something else', price: '$6.51' },
-  { name: 'Product 4', desc: 'Best thing of all', price: '$14.11' },
-  { name: 'Shipping', desc: '', price: 'Free' },
+  { name: 'Product 1', desc: 'A nice thing', price: '$9.99', qty: '1'},
+  { name: 'Product 2', desc: 'Another thing', price: '$3.45', qty: '2'},
+  { name: 'Product 3', desc: 'Something else', price: '$6.51', qty: '3'},
+  { name: 'Product 4', desc: 'Best thing of all', price: '$14.11', qty: '4'},
 ];
 const addresses = ['1 Material-UI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
 const payments = [
@@ -35,20 +34,46 @@ export default function Review() {
       <Typography variant="h6" gutterBottom>
         Order summary
       </Typography>
-      <List disablePadding>
+      {/* <List disablePadding>
         {products.map((product) => (
           <ListItem className={classes.listItem} key={product.name}>
             <ListItemText primary={product.name} secondary={product.desc} />
             <Typography variant="body2">{product.price}</Typography>
+            <Typography variant="body2">{product.qty}</Typography>
           </ListItem>
-        ))}
+        ))} */}
+         <Grid conatiner justify="space-between" alignItems="center">
+            <List disablePadding>
+             {products.map((product) => (
+            <ListItem className={classes.listItem} key={product.name}>
+                 <Grid item xs={8}>
+                  <ListItemText primary={product.name} secondary={product.desc} />
+                </Grid>
+                 
+                 <Grid item xs={2}>
+                  <Typography variant="body2">{product.price}</Typography>
+                </Grid>
+
+                <Grid item xs>
+                  <Typography variant="body2">{product.qty}</Typography> 
+                </Grid>
+                 
+                <Grid item xs>
+                    <Typography variant="body2">${parseFloat(product.qty) * parseFloat(product.price.substring(1,))}</Typography> 
+                </Grid>
+            </ListItem>
+          ))}
+          </List>
+        </Grid>
+
         <ListItem className={classes.listItem}>
           <ListItemText primary="Total" />
           <Typography variant="subtitle1" className={classes.total}>
             $34.06
           </Typography>
         </ListItem>
-      </List>
+
+      {/* </List> */}
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
           <Typography variant="h6" gutterBottom className={classes.title}>
