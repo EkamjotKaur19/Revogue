@@ -38,6 +38,8 @@ function SignIn() {
     dispatch(logIn(loginDetails));
     console.log(response.success);
     console.log(response);
+    if(response.success)
+      sessionStorage.setItem('useremail', loginDetails.email);
     setSignIn(response.success);
     /* if(response)
       console.log(response.success);
