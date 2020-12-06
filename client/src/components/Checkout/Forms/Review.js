@@ -9,6 +9,7 @@ import {
 } from '@material-ui/core';
 
 import useStyles from './styles';
+//import {address} from './AddressForm';
 
 // TODO: Replace with state - cart items
 
@@ -22,7 +23,18 @@ const products = JSON.parse(cartstring);
   { name: 'Product 4', desc: 'Best thing of all', price: '$14.11', qty: '4'},
 ]; */
 
-const addresses = ['1 Material-UI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
+//const addresses = ['1 Material-UI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
+var addresses = [];
+var addresslist = [];
+if(sessionStorage.getItem('address')) {
+  addresses = JSON.parse(sessionStorage.getItem('address'));
+  for (var i in addresses) {
+    if(i === 'lastname' || i === 'firstname') {
+      continue;
+    }
+    addresslist.push(addresses[i]);
+  }
+}
 const payments = [
   { name: 'Card type', detail: 'Visa' },
   { name: 'Card holder', detail: 'Mr John Smith' },
@@ -55,7 +67,7 @@ export default function Review() {
             <Typography variant="body2">{product.quantity}</Typography>
           </ListItem>
         ))} */}
-         <Grid conatiner justify="space-between" alignItems="center">
+         {/* <Grid conatiner justify="space-between" alignItems="center"> */}
             <List disablePadding>
              {products.map((product) => (
             <ListItem className={classes.listItem} key={product.name}>
@@ -72,12 +84,12 @@ export default function Review() {
                 </Grid>
                  
                 <Grid item xs>
-                    <Typography variant="body2">${parseFloat(product.quantity) * parseFloat(product.price.substring(1,))}</Typography> 
+                    <Typography variant="body2">{parseFloat(product.quantity) * parseFloat(product.price)}</Typography> 
                 </Grid>
             </ListItem>
           ))}
           </List>
-        </Grid>
+        {/* </Grid> */}
 
         <ListItem className={classes.listItem}>
           <ListItemText primary="Total" />
@@ -92,8 +104,8 @@ export default function Review() {
           <Typography variant="h6" gutterBottom className={classes.title}>
             Shipping
           </Typography>
-          <Typography gutterBottom>John Smith</Typography>
-          <Typography gutterBottom>{addresses.join(', ')}</Typography>
+          <Typography gutterBottom>{addresses.firstname} {addresses.lastname}</Typography>
+          <Typography gutterBottom>{addresslist.join(', ')}</Typography>
         </Grid>
         <Grid item container direction="column" xs={12} sm={6}>
           <Typography variant="h6" gutterBottom className={classes.title}>

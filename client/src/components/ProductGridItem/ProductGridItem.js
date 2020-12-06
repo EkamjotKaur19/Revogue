@@ -45,9 +45,9 @@ function ProductGridItem (props) {
     var item = props.product;
     console.log(item);
     let cartstring = sessionStorage.getItem('cart')
-    /* if (!cartstring) {
+    if (!cartstring) {
       cartstring = sessionStorage.setItem('cart', '[]')
-    } */
+    }
     
     let cart = JSON.parse(cartstring);
     var inCart = false;
