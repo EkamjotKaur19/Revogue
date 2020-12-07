@@ -11,6 +11,10 @@ import {
   Container,
   CssBaseline,
   Grid,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
   CardMedia,
   CardContent,
   Avatar,
@@ -56,10 +60,10 @@ function AddProductForm() {
         <CssBaseline />
         <Paper className={classes.paper}>
           <form autoComplete="off" noValidate className={classes.form} onSubmit={handleSubmit}>
-            <Typography variant="h6">Add a Product</Typography>
-            
+            <Typography variant="h6" gutterBottom={true} >Add a Product</Typography>
+          
             <Grid container spacing={3}>
-
+              
               <Grid item xs={12}>
                 <TextField 
                   name="name" 
@@ -67,7 +71,6 @@ function AddProductForm() {
                   label="Product Name"
                   autoFocus
                   required
-                  margin="normal"
                   fullWidth
                   value={productData.name} 
                   onChange={(e) => setProductData({...productData, name: e.target.value})}
@@ -75,7 +78,29 @@ function AddProductForm() {
               </Grid>
               
               <Grid item xs={12}>
-                <TextField 
+                <FormControl 
+                  variant="outlined"
+                  fullWidth
+                  >
+                  <InputLabel id="category">Category</InputLabel>
+                  <Select
+                    native
+                    value={productData.category}
+                    onChange={(e) => setProductData({...productData, category: e.target.value})}
+                    label="Category"
+                    labelId='category'
+                  >
+                    <option aria-label="None" value="" />
+                    <option value='men_shirt'>Men's Shirts</option>
+                    <option value='men_trouser'>Men's Trousers</option>
+                    <option value='women_top'>Women's Tops</option>
+                    <option value='women_dress'>Women's Dress</option>
+                    <option value='women_trouser'>Women's Trousers</option>
+                    <option value='accessory'>Accessories</option>
+                  </Select>
+                </FormControl>
+
+                {/* <TextField 
                   name="category" 
                   variant="outlined" 
                   label="Category"
@@ -84,7 +109,7 @@ function AddProductForm() {
                   fullWidth
                   value={productData.category} 
                   onChange={(e) => setProductData({...productData, category: e.target.value.toLowerCase()})}
-                />
+                /> */}
               </Grid>
 
               <Grid item xs={12}>
@@ -93,7 +118,6 @@ function AddProductForm() {
                   variant="outlined" 
                   label="Price"
                   required
-                  margin="normal"
                   fullWidth
                   value={productData.price} 
                   onChange={(e) => setProductData({...productData, price: e.target.value})}
@@ -106,7 +130,6 @@ function AddProductForm() {
                   variant="outlined" 
                   label="Quantity"
                   required
-                  margin="normal"
                   fullWidth
                   value={productData.quantity} 
                   onChange={(e) => setProductData({...productData, quantity: e.target.value})}
@@ -119,7 +142,6 @@ function AddProductForm() {
                   variant="outlined" 
                   label="Description"
                   required
-                  margin="normal"
                   fullWidth
                   value={productData.description} 
                   onChange={(e) => setProductData({...productData, description: e.target.value})}
