@@ -18,6 +18,7 @@ import Footer from './components/Footer/Footer';
 import Products from './components/Products/Products';
 import ProductsByCat from './components/Products/ProductsByCat';
 import ScrollToTop from './ScrollToTop';
+import AddProductForm from './components/AddProductForm/AddProductForm';
 
 import {BrowserRouter as Router, Route, withRouter} from 'react-router-dom';
 
@@ -39,6 +40,7 @@ function App() {
           <Route path = "/products/:id" render={(props) => <ProductItem {...props}/>} />
           <Route path = "/products/cat/:cat" render={(props) => <ProductsByCat {...props} />}/>
           <Route exact path = "/cart" component = {Cart} />
+          <Route exact path = "/add-product" component = {AddProductForm} />
         </ScrollToTop>
         
         {/* <Route path = "/products/:id" component = {ProductItem} /> */}

@@ -49,6 +49,7 @@ function NavBar () {
             <Button className={classes.navbarText}>Catalog</Button>
             <Button className={classes.navbarText}>About Us</Button>
             <Button className={classes.navbarText} component = {Link} to = "/login">{login.data}</Button>
+            <Button className={classes.navbarText} component = {Link} to = "/add-product">Add Product</Button>
           </Box>
         </Container> 
       </Toolbar>
