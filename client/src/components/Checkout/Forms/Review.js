@@ -13,7 +13,10 @@ import useStyles from './styles';
 
 // TODO: Replace with state - cart items
 
-var  cartstring = sessionStorage.getItem('cart');
+var  cartstring = localStorage.getItem('cart');
+if(!cartstring) {
+  cartstring = '[]';
+}
 const products = JSON.parse(cartstring);
 
 /* const products = [

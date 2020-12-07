@@ -45,7 +45,7 @@ export default function Checkout() {
 
   const handleFinal = () => {
     setActiveStep(activeStep + 1);
-    sessionStorage.setItem('cart', '[]');
+    localStorage.setItem('cart', '[]');
   };
 
   const handleBack = () => {

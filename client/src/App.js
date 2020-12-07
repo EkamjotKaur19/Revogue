@@ -26,7 +26,7 @@ import {BrowserRouter as Router, Route, withRouter} from 'react-router-dom';
 function App() {
   const classes = useStyles();
   
-  //sessionStorage.setItem('cart', '[]');
+  //localStorage.setItem('cart', '[]');
 
   return (
     <div className="App">
