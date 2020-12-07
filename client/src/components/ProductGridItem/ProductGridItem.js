@@ -44,10 +44,10 @@ function ProductGridItem (props) {
     console.log(props.product); */
     var item = props.product;
     console.log(item);
-    let cartstring = sessionStorage.getItem('cart')
-    /* if (!cartstring) {
-      cartstring = sessionStorage.setItem('cart', '[]')
-    } */
+    let cartstring = localStorage.getItem('cart')
+    if (!cartstring) {
+      cartstring = localStorage.setItem('cart', '[]')
+    }
     
     let cart = JSON.parse(cartstring);
     var inCart = false;
@@ -63,7 +63,7 @@ function ProductGridItem (props) {
       cart.push(item);
 
     console.log(cart);
-    sessionStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem('cart', JSON.stringify(cart));
   }
 
 
