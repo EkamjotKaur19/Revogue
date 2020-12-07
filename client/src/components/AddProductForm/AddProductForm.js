@@ -14,7 +14,7 @@ import {
   FormControl,
   InputLabel,
   Select,
-  MenuItem,
+  Box,
   CardMedia,
   CardContent,
   Avatar,
@@ -60,10 +60,12 @@ function AddProductForm() {
         <CssBaseline />
         <Paper className={classes.paper}>
           <form autoComplete="off" noValidate className={classes.form} onSubmit={handleSubmit}>
-            <Typography variant="h6" gutterBottom={true} >Add a Product</Typography>
-          
+            <Box mb={3} mt={2}>
+              <Typography variant="h6" >Add a Product</Typography>
+            </Box>
+
             <Grid container spacing={3}>
-              
+
               <Grid item xs={12}>
                 <TextField 
                   name="name" 
