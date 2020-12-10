@@ -42,7 +42,7 @@ const Products = function () {
       <Box className={classes.hero}>
         <Box>
           <Typography variant="h2">
-            One stop for all your needs!
+            Deals, Bargains and Steals!
           </Typography>
         </Box>
       </Box>

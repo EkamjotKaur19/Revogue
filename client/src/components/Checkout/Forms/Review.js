@@ -13,41 +13,42 @@ import useStyles from './styles';
 
 // TODO: Replace with state - cart items
 
-var  cartstring = localStorage.getItem('cart');
-if(!cartstring) {
-  cartstring = '[]';
-}
-const products = JSON.parse(cartstring);
-
-/* const products = [
-  { name: 'Product 1', desc: 'A nice thing', price: '$9.99', qty: '1'},
-  { name: 'Product 2', desc: 'Another thing', price: '$3.45', qty: '2'},
-  { name: 'Product 3', desc: 'Something else', price: '$6.51', qty: '3'},
-  { name: 'Product 4', desc: 'Best thing of all', price: '$14.11', qty: '4'},
-]; */
-
-//const addresses = ['1 Material-UI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
-var addresses = [];
-var addresslist = [];
-if(sessionStorage.getItem('address')) {
-  addresses = JSON.parse(sessionStorage.getItem('address'));
-  for (var i in addresses) {
-    if(i === 'lastname' || i === 'firstname') {
-      continue;
-    }
-    addresslist.push(addresses[i]);
-  }
-}
-const payments = [
-  { name: 'Card type', detail: 'Visa' },
-  { name: 'Card holder', detail: 'Mr John Smith' },
-  { name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234' },
-  { name: 'Expiry date', detail: '04/2024' },
-];
-
 
 export default function Review() {
   const classes = useStyles();
+
+  var  cartstring = localStorage.getItem('cart');
+  if(!cartstring) {
+    cartstring = '[]';
+  }
+  const products = JSON.parse(cartstring);
+
+  var addresses = [];
+  var addresslist = [];
+  if(sessionStorage.getItem('address')) {
+    addresses = JSON.parse(sessionStorage.getItem('address'));
+    for (var i in addresses) {
+      if(i === 'lastname' || i === 'firstname') {
+        continue;
+      }
+      addresslist.push(addresses[i]);
+    }
+  }
+
+  var paymentdets = [];
+  if (sessionStorage.getItem('payments')) {
+    paymentdets = JSON.parse(sessionStorage.getItem('payments'));
+  }
+
+  var payments = [];
+  if(paymentdets.number) {
+  payments = [
+    { name: 'Card type', detail: 'Visa' },
+    { name: 'Card holder', detail: paymentdets.holder },
+    { name: 'Card number', detail: 'xxxx-xxxx-xxxx-' + paymentdets.number.substr(12) },
+    { name: 'Expiry date', detail: paymentdets.expiry },
+  ];
+  }
 
   const getTotal = (products) => {
     let total = 0;
