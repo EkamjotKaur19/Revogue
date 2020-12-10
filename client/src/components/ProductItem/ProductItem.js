@@ -32,10 +32,10 @@ function ProductItem (props) {
     console.log(product); */
     var item = product;
     console.log(item);
-    let cartstring = sessionStorage.getItem('cart')
-    /* if (!cartstring) {
-      cartstring = sessionStorage.setItem('cart', '[]')
-    } */
+    let cartstring = localStorage.getItem('cart')
+    if (!cartstring) {
+      cartstring = localStorage.setItem('cart', '[]')
+    } 
     
     let cart = JSON.parse(cartstring);
     var inCart = false;
@@ -47,11 +47,12 @@ function ProductItem (props) {
         break;
       }
     }
-    if(!inCart)
+    if(!inCart) {
+      console.log(item);
       cart.push(item);
-
+    }
     console.log(cart);
-    sessionStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem('cart', JSON.stringify(cart));
   }
 
   return (
