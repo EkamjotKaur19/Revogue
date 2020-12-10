@@ -38,12 +38,28 @@ if(sessionStorage.getItem('address')) {
     addresslist.push(addresses[i]);
   }
 }
-const payments = [
+
+var paymentdets = [];
+if (sessionStorage.getItem('payments')) {
+  paymentdets = JSON.parse(sessionStorage.getItem('payments'));
+}
+
+var payments = [];
+if(paymentdets.number) {
+ payments = [
   { name: 'Card type', detail: 'Visa' },
-  { name: 'Card holder', detail: 'Mr John Smith' },
-  { name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234' },
-  { name: 'Expiry date', detail: '04/2024' },
+  { name: 'Card holder', detail: paymentdets.holder },
+  { name: 'Card number', detail: 'xxxx-xxxx-xxxx-' + paymentdets.number.substr(12) },
+  { name: 'Expiry date', detail: paymentdets.expiry },
 ];
+}
+
+// const payments = [
+//   { name: 'Card type', detail: 'Visa' },
+//   { name: 'Card holder', detail: 'Mr John Smith' },
+//   { name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234' },
+//   { name: 'Expiry date', detail: '04/2024' },
+// ];
 
 
 export default function Review() {

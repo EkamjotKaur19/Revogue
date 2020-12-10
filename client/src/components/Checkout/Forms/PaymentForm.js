@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useState} from 'react';
 
 import {
   Typography,
@@ -9,6 +9,15 @@ import {
 } from '@material-ui/core';
 
 export default function PaymentForm() {
+  const [payments, setPayments] = useState({ holder:'', number: '', expiry:''});
+
+  /* const payments = [
+    { name: 'Card type', detail: 'Visa' },
+    { name: 'Card holder', detail: 'Mr John Smith' },
+    { name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234' },
+    { name: 'Expiry date', detail: '04/2024' },
+  ]; */
+
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -16,7 +25,9 @@ export default function PaymentForm() {
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
-          <TextField required id="cardName" label="Name on card" fullWidth autoComplete="cc-name" />
+          <TextField required id="cardName" label="Name on card" fullWidth autoComplete="cc-name" 
+          value = {payments.holder}
+          onChange = {(e) => {setPayments({...payments, holder: e.target.value}); sessionStorage.setItem('payments', JSON.stringify(payments));}}/>
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField
@@ -25,10 +36,14 @@ export default function PaymentForm() {
             label="Card number"
             fullWidth
             autoComplete="cc-number"
+            value = {payments.number}
+            onChange = {(e) => {setPayments({...payments, number: e.target.value}); sessionStorage.setItem('payments', JSON.stringify(payments));}}
           />
         </Grid>
         <Grid item xs={12} md={6}>
-          <TextField required id="expDate" label="Expiry date" fullWidth autoComplete="cc-exp" />
+          <TextField required id="expDate" label="Expiry date" fullWidth autoComplete="cc-exp" 
+          value = {payments.expiry}
+          onChange = {(e) => {setPayments({...payments, expiry: e.target.value}); sessionStorage.setItem('payments', JSON.stringify(payments));}}/>
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField
