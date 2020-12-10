@@ -27,7 +27,7 @@ export default function AddressForm() {
             fullWidth
             autoComplete="given-name"
             value = {address.firstname}
-            onChange = {(e) => {setAddress({...address, firstname: e.target.value}); sessionStorage.setItem('address', JSON.stringify(address));}}
+            onChange = {(e) => {setAddress({...address, firstname: e.target.value}); sessionStorage.setItem('address', JSON.stringify(address)); if(false){}}}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -39,7 +39,7 @@ export default function AddressForm() {
             fullWidth
             autoComplete="family-name"
             value = {address.lastname}
-            onChange = {(e) => {setAddress({...address, lastname: e.target.value}); sessionStorage.setItem('address', JSON.stringify(address));}}
+            onChange = {(e) => {setAddress({...address, lastname: e.target.value}); sessionStorage.setItem('address', JSON.stringify(address));if(false){}}}
           />
         </Grid>
         <Grid item xs={12}>
@@ -51,7 +51,7 @@ export default function AddressForm() {
             fullWidth
             autoComplete="shipping address-line1"
             value = {address.address1}
-            onChange = {(e) => {setAddress({...address, address1: e.target.value}); sessionStorage.setItem('address', JSON.stringify(address));}}
+            onChange = {(e) => {setAddress({...address, address1: e.target.value}); sessionStorage.setItem('address', JSON.stringify(address));if(false){}}}
           />
         </Grid>
         <Grid item xs={12}>
@@ -62,7 +62,7 @@ export default function AddressForm() {
             fullWidth
             autoComplete="shipping address-line2"
             value = {address.address2}
-            onChange = {(e) => {setAddress({...address, address2: e.target.value}); sessionStorage.setItem('address', JSON.stringify(address));}}
+            onChange = {(e) => {setAddress({...address, address2: e.target.value}); sessionStorage.setItem('address', JSON.stringify(address));if(false){}}}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -74,12 +74,12 @@ export default function AddressForm() {
             fullWidth
             autoComplete="shipping address-level2"
             value = {address.city}
-            onChange = {(e) => {setAddress({...address, city: e.target.value}); sessionStorage.setItem('address', JSON.stringify(address));}}
+            onChange = {(e) => {setAddress({...address, city: e.target.value}); sessionStorage.setItem('address', JSON.stringify(address));if(false){}}}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField id="state" name="state" label="State/Province/Region" fullWidth value = {address.state}
-            onChange = {(e) => {setAddress({...address, state: e.target.value}); sessionStorage.setItem('address', JSON.stringify(address));}} />
+            onChange = {(e) => {setAddress({...address, state: e.target.value}); sessionStorage.setItem('address', JSON.stringify(address));if(false){}}} />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
@@ -90,7 +90,7 @@ export default function AddressForm() {
             fullWidth
             autoComplete="shipping postal-code"
             value = {address.pincode}
-            onChange = {(e) => {setAddress({...address, pincode: e.target.value}); sessionStorage.setItem('address', JSON.stringify(address));}}
+            onChange = {(e) => {setAddress({...address, pincode: e.target.value}); sessionStorage.setItem('address', JSON.stringify(address));if(false){}}}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -102,7 +102,7 @@ export default function AddressForm() {
             fullWidth
             autoComplete="shipping country"
             value = {address.country}
-            onChange = {(e) => {setAddress({...address, country: e.target.value}); sessionStorage.setItem('address', JSON.stringify(address));}}
+            onChange = {(e) => {setAddress({...address, country: e.target.value}); sessionStorage.setItem('address', JSON.stringify(address));if(false){}}}
           />
         </Grid>
         <Grid item xs={12}>

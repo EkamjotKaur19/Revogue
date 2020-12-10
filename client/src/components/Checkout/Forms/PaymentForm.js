@@ -8,6 +8,7 @@ import {
   Checkbox
 } from '@material-ui/core';
 
+
 export default function PaymentForm() {
   const [payments, setPayments] = useState({ holder:'', number: '', expiry:''});
 
@@ -27,7 +28,7 @@ export default function PaymentForm() {
         <Grid item xs={12} md={6}>
           <TextField required id="cardName" label="Name on card" fullWidth autoComplete="cc-name" 
           value = {payments.holder}
-          onChange = {(e) => {setPayments({...payments, holder: e.target.value}); sessionStorage.setItem('payments', JSON.stringify(payments));}}/>
+          onChange = {(e) => {setPayments({...payments, holder: e.target.value}); sessionStorage.setItem('payments', JSON.stringify(payments)); if(false){}}}/>
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField
@@ -37,13 +38,13 @@ export default function PaymentForm() {
             fullWidth
             autoComplete="cc-number"
             value = {payments.number}
-            onChange = {(e) => {setPayments({...payments, number: e.target.value}); sessionStorage.setItem('payments', JSON.stringify(payments));}}
+            onChange = {(e) => {setPayments({...payments, number: e.target.value}); sessionStorage.setItem('payments', JSON.stringify(payments)); if(false){}}}
           />
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField required id="expDate" label="Expiry date" fullWidth autoComplete="cc-exp" 
           value = {payments.expiry}
-          onChange = {(e) => {setPayments({...payments, expiry: e.target.value}); sessionStorage.setItem('payments', JSON.stringify(payments));}}/>
+          onChange = {(e) => {setPayments({...payments, expiry: e.target.value}); sessionStorage.setItem('payments', JSON.stringify(payments)); if(false){}}}/>
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField
