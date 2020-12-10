@@ -46,7 +46,7 @@ function NavBar () {
 
           <Box display="flex" flexDirection="row-reverse" justifyContent="space-between">
             <Button className ={classes.navbarText} component = {Link} to = "/checkout"><ShoppingCartOutlinedIcon/></Button>
-            <Button className={classes.navbarText}>Catalog</Button>
+            <Button className={classes.navbarText} component = {Link} to = "/">Catalog</Button>
             <Button className={classes.navbarText}>About Us</Button>
             <Button className={classes.navbarText} component = {Link} to = "/login">{login.data}</Button>
             <Button className={classes.navbarText} component = {Link} to = "/add-product">Add Product</Button>
