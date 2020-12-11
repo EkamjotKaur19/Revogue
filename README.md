@@ -20,7 +20,7 @@ To start the server, `cd` into the `server` directory and run
 npm start
 ```
 
-The server should start running on <localhost:5000>
+The server should start running on <http://localhost:5000>
 
 ### Start React app
 
@@ -30,4 +30,4 @@ To start the react app, `cd` into the `client` directory and run
 npm start
 ```
 
-The wesbite should open on <localhost:3000>
+The wesbite should open on <http://localhost:3000>
