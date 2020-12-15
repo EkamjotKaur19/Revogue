@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // const host = 'http://localhost:5000/'
-const host = 'https://thrift-shop-wt.herokuapp.com';
+const host = 'https://thrift-shop-wt.herokuapp.com/';
 
 const product_url = host + 'products';
 const user_url = host + 'users/register';
