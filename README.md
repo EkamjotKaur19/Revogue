@@ -1,8 +1,12 @@
 # thrift-shop
 
-An e-commerce website for buying/selling thrift items built using MERN (MongoDB, ExpressJS, ReactJS, NodeJS) stack. This is our Mini Project for Web Technologies (UE19CS204). As of now, this runs only locally but we plan on hosting it to scale it in the future.
+An e-commerce website for buying/selling thrift items built using MERN (MongoDB, ExpressJS, ReactJS, NodeJS) stack. This is our Mini Project for Web Technologies (UE19CS204).
 
-## Setup
+## Working site
+
+Visit <https://thrift-shop.netlify.app> to see the deployed and running app.
+
+## Setup - localhost
 
 ### Install node modules
 
