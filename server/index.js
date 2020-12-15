@@ -23,6 +23,10 @@ app.use(passport.initialize());
 passportUse(passport);
 
 // Routes
+
+app.get('/', (req, res) => {
+    res.send('Welcome to Thrift Shop API');
+});
 app.use('/users', userRoutes);
 app.use('/products', productRoutes);
 

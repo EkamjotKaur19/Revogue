@@ -1,8 +1,11 @@
 import axios from 'axios';
 
-const product_url = 'http://localhost:5000/products';
-const user_url = 'http://localhost:5000/users/register';
-const login_url = 'http://localhost:5000/users/login';
+// const host = 'http://localhost:5000/'
+const host = 'https://thrift-shop-wt.herokuapp.com';
+
+const product_url = host + 'products';
+const user_url = host + 'users/register';
+const login_url = host + 'users/login';
 
 
 export const getProducts = () => axios.get(product_url);
